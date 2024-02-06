@@ -1,0 +1,4 @@
+-command to migrate whole old sintax to new sintax
+You can decide the entire project or part by part
+
+ng g @angular/core:control-flow
