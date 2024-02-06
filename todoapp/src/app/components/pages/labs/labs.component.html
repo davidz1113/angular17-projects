@@ -1,0 +1,76 @@
+<h1>Hola este es mi primer proyecto</h1>
+<h2>{{ welcome }}</h2>
+<ul>
+  @for (task of tasks(); track task) {
+  <li>
+    {{ task }}
+  </li>
+  }
+</ul>
+<hr />
+<h2>{{ "Hola".repeat(9) }}</h2>
+<p>La suma de 3 + 3 es {{ 3 + 3 }}</p>
+@if (person().name === 'Andress') {
+<div>Soy david</div>
+} @else {
+<div>No soy Andres</div>
+}
+<p>Hola soy {{ person().name }} y mi edad es {{ person().age }}</p>
+<hr />
+<img [src]="img" alt="" />
+<input type="text" [value]="person().name" [(ngModel)]="person().name" />
+<button type="button" [disabled]="disabled">click me</button>
+<p></p>
+<p>total {{ tasks().length }}</p>
+<ul>
+  @for (task of tasks(); track task; let i = $index) {
+  <li>{{ i }} {{ task }}</li>
+  }
+</ul>
+<div>
+  @switch (person().name) { @case ('nicolas') {
+  <p>Yo soy nico</p>
+  } @case ('david') {
+  <p>Yo soy davo</p>
+  } @case ('shaka') {
+  <p>Yo soy shaka</p>
+  } @default {
+  <p>Nadie</p>
+  } }
+</div>
+@switch (person().name) { @case ('nicolas') {
+<p>Yo soy nico</p>
+} @default {
+<p>nadie</p>
+} }
+<hr />
+<input type="color" name="" id="" [formControl]="controlCtrl" />
+<p>color: {{ controlCtrl.value }}</p>
+<hr />
+<input type="number" name="" id="" [formControl]="widthCrtl" />
+<span class="box" [style.width.%]="widthCrtl.value"></span>
+<hr />
+<input type="text" name="" id="" [formControl]="nameCrtl" /><br />
+<span class="message-error" [class.show]="nameCrtl.invalid && nameCrtl.touched"
+  >Nombre Invalido</span
+>
+<p>
+  <input type="text" />
+</p>
+<svg>
+  <g>
+    <rect
+      x="0"
+      y="0"
+      height="100"
+      width="100"
+      [attr.fill]="controlCtrl.value"
+    />
+  </g>
+</svg>
+<h4>new for</h4>
+@for (task of tasks(); track task; let i = $index) {
+<li>{{ i }} {{ task }}</li>
+} @empty {
+<li><strong>La lista esta vacia</strong></li>
+}
